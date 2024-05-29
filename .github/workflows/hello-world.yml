@@ -1,23 +1,24 @@
 name: Hello World workflow 
-
 on: 
    push:
-       branches:
-          -main
+       branches: main
    pull_request:
-       branches:
-        -main
+       branches: main
    workflow_dispatch:
 jobs:
   hello:
      runs-on: ubuntu-latest
      steps:
-         - name : checkout repository
-           uses:  actions-checkout@v2
-         - name: setup node 
-           run: npm install 
-         - name: build 
-           run : npm run build
+         -name : checkout repository
+          uses:  actions/checkout@v2
+         -name: setup node
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+         -name : install dep
+          run: npm install 
+         -name: develop build 
+          run : npm run build
 
 
 
