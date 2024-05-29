@@ -1,0 +1,23 @@
+name: Hello World workflow 
+
+on: 
+   push:
+       branches:
+          -main
+   pull_request:
+       branches:
+        -main
+   workflow_dispatch:
+jobs:
+  hello:
+     runs-on: ubuntu-latest
+     steps:
+         name : checkout repository
+         uses:  actions-checkout@v2
+         name: setup node 
+         run: npm install 
+         name: build 
+         run : npm run build
+
+
+
